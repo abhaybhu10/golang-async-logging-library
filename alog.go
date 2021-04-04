@@ -54,8 +54,10 @@ func (al Alog) Start() {
 		case <-al.shutdownCh:
 			wg.Wait()
 			al.shutdown()
+			goto END
 		}
 	}
+END:
 }
 
 func (al Alog) formatMessage(msg string) string {
